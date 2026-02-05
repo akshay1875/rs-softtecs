@@ -24,29 +24,16 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Enable CORS
-const allowedOrigins = [
-  'http://localhost:3000',
-  process.env.FRONTEND_URL,
-  'https://rs-softtecs.vercel.app',
-  'https://rs-softtecs-dkp2.vercel.app'
-].filter(Boolean);
-
+// Enable CORS - Allow all origins for now
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.some(allowed => origin.startsWith(allowed.replace(/\/$/, '')))) {
-      return callback(null, true);
-    }
-    // Allow any vercel.app subdomain
-    if (origin.includes('vercel.app')) {
-      return callback(null, true);
-    }
-    callback(null, true); // Allow all for now
-  },
-  credentials: true
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin']
 }));
+
+// Handle preflight requests
+app.options('*', cors());
 
 // Set static folder for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
