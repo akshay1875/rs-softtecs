@@ -1,11 +1,7 @@
 import Link from 'next/link';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
@@ -21,16 +17,16 @@ const Footer = () => {
               Pune&apos;s #1 IT Training & Placement Institute since 2011. We transform careers through quality education and industry-relevant training.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <a href="https://www.facebook.com/share/12FpWXUrb5S/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
                 <FaFacebook />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <a href="https://www.instagram.com/rssofttecs?igsh=MWphMTJ3dHhpbGYxYw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
                 <FaInstagram />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <a href="https://www.linkedin.com/company/rs-softtecs/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
                 <FaLinkedin />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <a href="https://youtube.com/@rssofttecs?si=yVSXa3cakXQNeHaj" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
                 <FaYoutube />
               </a>
             </div>
@@ -57,44 +53,74 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Popular Courses */}
+          {/* Office Addresses */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Popular Courses</h4>
-            <ul className="space-y-3">
-              {[
-                'Full Stack Java',
-                'Python Development',
-                'MERN Stack',
-                'Data Science & ML',
-                'AWS Cloud',
-                'Software Testing',
-              ].map((course) => (
-                <li key={course}>
-                  <Link href="/courses" className="text-gray-400 hover:text-accent-400 transition-colors">
-                    {course}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <h4 className="text-lg font-semibold mb-6">Office Addresses</h4>
+            <div className="space-y-6">
+              {/* Head Office */}
+              <div>
+                <h5 className="text-accent-400 font-semibold text-sm mb-2">Head Office - Deccan, Pune</h5>
+                <div className="flex gap-3">
+                  <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.
+                    </p>
+                    <a
+                      href="https://maps.app.goo.gl/KeCcYoEwFwvMUAE66"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 text-xs mt-1 transition-colors"
+                    >
+                      View on Google Maps <FaExternalLinkAlt className="text-[10px]" />
+                    </a>
+                    <div className="mt-2 space-y-1">
+                      <a href="tel:+919172101012" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 101 012
+                      </a>
+                      <a href="tel:+919172201101" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 201 101
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Branch Office */}
+              <div>
+                <h5 className="text-accent-400 font-semibold text-sm mb-2">Branch - Karvenagar, Pune</h5>
+                <div className="flex gap-3">
+                  <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.
+                    </p>
+                    <a
+                      href="https://maps.app.goo.gl/LwTiZu5c2Ac9mWkB6"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 text-xs mt-1 transition-colors"
+                    >
+                      View on Google Maps <FaExternalLinkAlt className="text-[10px]" />
+                    </a>
+                    <div className="mt-2 space-y-1">
+                      <a href="tel:+919172011021" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 011 021
+                      </a>
+                      <a href="tel:+919172110012" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 110 012
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4">
-              <li className="flex gap-3">
-                <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-1" />
-                <span className="text-gray-400">
-                  Office No. 123, IT Park Road,<br />
-                  Hinjewadi, Pune - 411057
-                </span>
-              </li>
-              <li>
-                <a href="tel:+919876543210" className="flex items-center gap-3 text-gray-400 hover:text-accent-400 transition-colors">
-                  <FaPhone className="text-accent-400" />
-                  <span>+91-9876543210</span>
-                </a>
-              </li>
               <li>
                 <a href="mailto:info@rssofttecs.com" className="flex items-center gap-3 text-gray-400 hover:text-accent-400 transition-colors">
                   <FaEnvelope className="text-accent-400" />
@@ -128,14 +154,16 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-lg shadow-lg flex items-center justify-center hover:-translate-y-1 transition-transform z-40"
-        aria-label="Back to top"
+      {/* WhatsApp Chat Button */}
+      <a
+        href="https://wa.me/919172011021"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg flex items-center justify-center hover:-translate-y-1 hover:shadow-xl transition-all z-40"
+        aria-label="Chat on WhatsApp"
       >
-        <FaArrowUp />
-      </button>
+        <FaWhatsapp className="text-2xl" />
+      </a>
     </footer>
   );
 };

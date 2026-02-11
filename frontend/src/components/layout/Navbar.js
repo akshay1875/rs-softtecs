@@ -35,9 +35,14 @@ const Navbar = () => {
       <div className="hidden md:block bg-primary-900 text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-accent-400 transition-colors">
+            <a href="tel:+919172101012" className="flex items-center gap-2 hover:text-accent-400 transition-colors">
               <FaPhone className="text-accent-400" />
-              <span>+91-9876543210</span>
+              <span>+91 9172 101 012</span>
+            </a>
+            <span className="text-gray-500">|</span>
+            <a href="tel:+919172011021" className="flex items-center gap-2 hover:text-accent-400 transition-colors">
+              <FaPhone className="text-accent-400" />
+              <span>+91 9172 011 021</span>
             </a>
             <a href="mailto:info@rssofttecs.com" className="flex items-center gap-2 hover:text-accent-400 transition-colors">
               <FaEnvelope className="text-accent-400" />

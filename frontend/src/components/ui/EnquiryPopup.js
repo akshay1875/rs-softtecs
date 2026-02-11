@@ -3,7 +3,7 @@ import { enquiriesAPI, coursesAPI } from '@/utils/api';
 import toast from 'react-hot-toast';
 import { FaTimes, FaPaperPlane, FaCheckCircle, FaGraduationCap, FaDownload, FaFileAlt } from 'react-icons/fa';
 
-export default function EnquiryPopup({ isOpen, onClose, triggerSource = 'popup', downloadAfterSubmit = false }) {
+export default function EnquiryPopup({ isOpen, onClose, onSubmitted, triggerSource = 'popup', downloadAfterSubmit = false }) {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -58,6 +58,11 @@ export default function EnquiryPopup({ isOpen, onClose, triggerSource = 'popup',
         source: triggerSource
       });
       setSubmitted(true);
+
+      // Mark as submitted so popup doesn't appear again
+      if (onSubmitted) {
+        onSubmitted();
+      }
       
       // Trigger download after successful submission
       if (isDownloadMode) {
@@ -239,17 +244,18 @@ export default function EnquiryPopup({ isOpen, onClose, triggerSource = 'popup',
 // Hook for auto-popup every 1 minute
 export function useEnquiryPopup() {
   const [showPopup, setShowPopup] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
 
   useEffect(() => {
-    // Check if user has already submitted or dismissed recently
-    const lastDismissed = localStorage.getItem('enquiryPopupDismissed');
+    // Check if user has already submitted an enquiry
     const lastSubmitted = localStorage.getItem('enquiryPopupSubmitted');
-    
     if (lastSubmitted) {
-      return; // Don't show if already submitted
+      setAlreadySubmitted(true);
+      return; // Never show auto-popup if already submitted
     }
 
+    // Check if dismissed recently (within last 1 hour)
+    const lastDismissed = localStorage.getItem('enquiryPopupDismissed');
     if (lastDismissed) {
       const dismissedTime = parseInt(lastDismissed);
       const oneHour = 60 * 60 * 1000;
@@ -258,19 +264,20 @@ export function useEnquiryPopup() {
       }
     }
 
-    // Show popup after 1 minute if user hasn't interacted
-    const timer = setInterval(() => {
-      if (!hasInteracted) {
+    // Show popup once after 1 minute (not repeating)
+    const timer = setTimeout(() => {
+      // Re-check localStorage in case form was submitted on another page
+      const submitted = localStorage.getItem('enquiryPopupSubmitted');
+      if (!submitted) {
         setShowPopup(true);
       }
     }, 60000); // 1 minute = 60000ms
 
-    return () => clearInterval(timer);
-  }, [hasInteracted]);
+    return () => clearTimeout(timer);
+  }, []);
 
   const openPopup = () => {
     setShowPopup(true);
-    setHasInteracted(true);
   };
 
   const closePopup = () => {
@@ -279,7 +286,8 @@ export function useEnquiryPopup() {
   };
 
   const markSubmitted = () => {
-    localStorage.setItem('enquiryPopupSubmitted', 'true');
+    localStorage.setItem('enquiryPopupSubmitted', Date.now().toString());
+    setAlreadySubmitted(true);
     setShowPopup(false);
   };
 
@@ -287,6 +295,7 @@ export function useEnquiryPopup() {
     showPopup,
     openPopup,
     closePopup,
-    markSubmitted
+    markSubmitted,
+    alreadySubmitted
   };
 }

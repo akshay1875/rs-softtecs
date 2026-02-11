@@ -18,10 +18,15 @@ const siteSettingsSchema = new mongoose.Schema({
     default: '/images/favicon.ico'
   },
   contact: {
-    phone: { type: String, default: '+91-9876543210' },
+    phone: { type: String, default: '+91 9172 101 012' },
+    phone2: { type: String, default: '+91 9172 201 101' },
+    branchPhone: { type: String, default: '+91 9172 011 021' },
+    branchPhone2: { type: String, default: '+91 9172 110 012' },
     email: { type: String, default: 'info@rssofttecs.com' },
+    headOfficeAddress: { type: String, default: 'Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.' },
+    branchAddress: { type: String, default: 'Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.' },
     address: { type: String, default: 'Pune, Maharashtra, India' },
-    mapUrl: { type: String }
+    mapUrl: { type: String, default: 'https://maps.app.goo.gl/KeCcYoEwFwvMUAE66' }
   },
   socialLinks: {
     facebook: String,

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import { enquiriesAPI, coursesAPI } from '@/utils/api';
 import toast from 'react-hot-toast';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [courses, setCourses] = useState([]);
@@ -40,6 +40,8 @@ export default function ContactPage() {
     try {
       await enquiriesAPI.create(formData);
       setSubmitted(true);
+      // Mark as submitted so the auto-popup won't appear anymore
+      localStorage.setItem('enquiryPopupSubmitted', Date.now().toString());
       toast.success('Enquiry submitted successfully!');
       setFormData({
         name: '',
@@ -76,6 +78,105 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Office Addresses Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Our Offices</h2>
+            <p className="text-gray-600">Visit us at any of our office locations in Pune</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Head Office */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-8">
+                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full mb-4">HEAD OFFICE</span>
+                <h3 className="text-xl font-bold mb-3">Deccan, Pune</h3>
+                <div className="flex gap-3 mb-4">
+                  <FaMapMarkerAlt className="text-primary-600 flex-shrink-0 mt-1" />
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <a href="tel:+919172101012" className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors">
+                    <FaPhone className="text-primary-600 text-sm" />
+                    <span className="text-sm">+91 9172 101 012</span>
+                  </a>
+                  <a href="tel:+919172201101" className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors">
+                    <FaPhone className="text-primary-600 text-sm" />
+                    <span className="text-sm">+91 9172 201 101</span>
+                  </a>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/KeCcYoEwFwvMUAE66"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm font-semibold transition-colors"
+                >
+                  View on Google Maps <FaExternalLinkAlt className="text-xs" />
+                </a>
+              </div>
+              <div className="h-56 bg-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.3!2d73.8407!3d18.5155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07f4b3e0b1d%3A0x0!2sBhosale+Shinde+Arcade+JM+Road+Deccan+Pune!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Head Office - Deccan, Pune"
+                />
+              </div>
+            </div>
+
+            {/* Branch Office */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-8">
+                <span className="inline-block px-3 py-1 bg-accent-100 text-accent-700 text-xs font-semibold rounded-full mb-4">BRANCH OFFICE</span>
+                <h3 className="text-xl font-bold mb-3">Karvenagar, Pune</h3>
+                <div className="flex gap-3 mb-4">
+                  <FaMapMarkerAlt className="text-primary-600 flex-shrink-0 mt-1" />
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <a href="tel:+919172011021" className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors">
+                    <FaPhone className="text-primary-600 text-sm" />
+                    <span className="text-sm">+91 9172 011 021</span>
+                  </a>
+                  <a href="tel:+919172110012" className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors">
+                    <FaPhone className="text-primary-600 text-sm" />
+                    <span className="text-sm">+91 9172 110 012</span>
+                  </a>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/LwTiZu5c2Ac9mWkB6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm font-semibold transition-colors"
+                >
+                  View on Google Maps <FaExternalLinkAlt className="text-xs" />
+                </a>
+              </div>
+              <div className="h-56 bg-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8!2d73.8150!3d18.4950!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0000f000001%3A0x0!2sYashashree+Park+Warje+Malwadi+Karve+Nagar+Pune!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Branch Office - Karvenagar, Pune"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="section">
         <div className="container mx-auto px-4">
@@ -87,15 +188,13 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-primary-600" />
+                    <FaEnvelope className="text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Our Location</h3>
-                    <p className="text-gray-600 text-sm">
-                      Office No. 123, IT Park Road,<br />
-                      Hinjewadi, Pune - 411057,<br />
-                      Maharashtra, India
-                    </p>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <a href="mailto:info@rssofttecs.com" className="text-gray-600 hover:text-primary-600">
+                      info@rssofttecs.com
+                    </a>
                   </div>
                 </div>
 
@@ -104,21 +203,27 @@ export default function ContactPage() {
                     <FaPhone className="text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+919876543210" className="text-gray-600 hover:text-primary-600">
-                      +91-9876543210
+                    <h3 className="font-semibold mb-1">Head Office (Deccan)</h3>
+                    <a href="tel:+919172101012" className="block text-gray-600 hover:text-primary-600 text-sm">
+                      +91 9172 101 012
+                    </a>
+                    <a href="tel:+919172201101" className="block text-gray-600 hover:text-primary-600 text-sm">
+                      +91 9172 201 101
                     </a>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="text-primary-600" />
+                    <FaPhone className="text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:info@rssofttecs.com" className="text-gray-600 hover:text-primary-600">
-                      info@rssofttecs.com
+                    <h3 className="font-semibold mb-1">Branch (Karvenagar)</h3>
+                    <a href="tel:+919172011021" className="block text-gray-600 hover:text-primary-600 text-sm">
+                      +91 9172 011 021
+                    </a>
+                    <a href="tel:+919172110012" className="block text-gray-600 hover:text-primary-600 text-sm">
+                      +91 9172 110 012
                     </a>
                   </div>
                 </div>
@@ -135,19 +240,6 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Map */}
-              <div className="mt-8 rounded-xl overflow-hidden h-64 bg-gray-200">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.625969893942!2d73.71674631513168!3d18.58863398739418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb000f4b49b5%3A0x4ebc0a0d7d0d0e0f!2sHinjewadi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
               </div>
             </div>
 

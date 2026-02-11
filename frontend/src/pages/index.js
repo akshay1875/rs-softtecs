@@ -20,7 +20,7 @@ export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [settings, setSettings] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState('popup');
-  const { showPopup, openPopup, closePopup } = useEnquiryPopup();
+  const { showPopup, openPopup, closePopup, markSubmitted } = useEnquiryPopup();
 
   useEffect(() => {
     fetchData();
@@ -420,6 +420,7 @@ export default function Home() {
       <EnquiryPopup 
         isOpen={showPopup} 
         onClose={closePopup}
+        onSubmitted={markSubmitted}
         triggerSource={popupTrigger}
         downloadAfterSubmit={popupTrigger === 'syllabus_download'}
       />

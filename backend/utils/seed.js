@@ -352,16 +352,21 @@ const siteSettings = {
   companyName: 'RS Softtecs Pvt Ltd',
   tagline: "Pune's #1 IT Training & Placement Institute",
   contact: {
-    phone: '+91-9876543210',
+    phone: '+91 9172 101 012',
+    phone2: '+91 9172 201 101',
+    branchPhone: '+91 9172 011 021',
+    branchPhone2: '+91 9172 110 012',
     email: 'info@rssofttecs.com',
-    address: 'Office No. 123, IT Park Road, Hinjewadi, Pune - 411057, Maharashtra, India',
-    mapUrl: 'https://maps.google.com/?q=Hinjewadi,Pune'
+    headOfficeAddress: 'Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.',
+    branchAddress: 'Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.',
+    address: 'Pune, Maharashtra, India',
+    mapUrl: 'https://maps.app.goo.gl/KeCcYoEwFwvMUAE66'
   },
   socialLinks: {
-    facebook: 'https://facebook.com/rssofttecs',
-    instagram: 'https://instagram.com/rssofttecs',
-    linkedin: 'https://linkedin.com/company/rssofttecs',
-    youtube: 'https://youtube.com/rssofttecs'
+    facebook: 'https://www.facebook.com/share/12FpWXUrb5S/',
+    instagram: 'https://www.instagram.com/rssofttecs?igsh=MWphMTJ3dHhpbGYxYw==',
+    linkedin: 'https://www.linkedin.com/company/rs-softtecs/',
+    youtube: 'https://youtube.com/@rssofttecs?si=yVSXa3cakXQNeHaj'
   },
   stats: {
     studentsPlaced: 5000,
