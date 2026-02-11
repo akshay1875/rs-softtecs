@@ -7,6 +7,7 @@ import ReviewCard from '@/components/ui/ReviewCard';
 import { PageLoader } from '@/components/ui/LoadingSpinner';
 import EnquiryPopup, { useEnquiryPopup } from '@/components/ui/EnquiryPopup';
 import { coursesAPI, testimonialsAPI, reviewsAPI, settingsAPI } from '@/utils/api';
+import Image from 'next/image';
 import { 
   FaGraduationCap, FaUsers, FaBriefcase, FaBuilding, 
   FaChalkboardTeacher, FaLaptopCode, FaHandshake, FaCertificate,
@@ -146,9 +147,13 @@ export default function Home() {
                 <div className="absolute inset-10 bg-gradient-to-br from-accent-400 to-accent-600 rounded-3xl transform rotate-6 shadow-2xl" />
                 <div className="absolute inset-10 bg-white rounded-3xl shadow-2xl flex items-center justify-center">
                   <div className="text-center p-8">
-                    <FaGraduationCap className="text-7xl text-primary-600 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">RS Softtecs</h3>
-                    <p className="text-gray-600">IT Training & Placement</p>
+                    <Image
+                      src="/images/logo.png"
+                      alt="RS Softtecs Solutions Pvt. Ltd."
+                      width={300}
+                      height={171}
+                      className="w-64 h-auto mx-auto"
+                    />
                   </div>
                 </div>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FaBars, FaTimes, FaPhone, FaEnvelope } from 'react-icons/fa';
 
@@ -66,11 +67,15 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex flex-col">
-              <span className="text-2xl font-bold font-display text-primary-700">
-                RS Softtecs
-              </span>
-              <span className="text-xs text-gray-500 -mt-1">IT Training & Placement</span>
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="RS Softtecs Solutions Pvt. Ltd."
+                width={180}
+                height={103}
+                className="h-12 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}

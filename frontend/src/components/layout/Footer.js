@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Footer = () => {
@@ -11,8 +12,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <span className="text-3xl font-bold font-display text-white">RS Softtecs</span>
-              <span className="block text-sm text-gray-400">Pvt Ltd</span>
+              <Image
+                src="/images/logo.png"
+                alt="RS Softtecs Solutions Pvt. Ltd."
+                width={180}
+                height={103}
+                className="h-14 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Pune&apos;s #1 IT Training & Placement Institute since 2011. We transform careers through quality education and industry-relevant training.
