@@ -21,10 +21,19 @@ export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [settings, setSettings] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState('popup');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { showPopup, openPopup, closePopup, markSubmitted } = useEnquiryPopup();
 
   useEffect(() => {
     fetchData();
+  }, []);
+
+  // Auto-rotate hero images every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
   }, []);
 
   // Handle download syllabus button click - open popup first
@@ -140,25 +149,53 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Visual */}
+            {/* Visual - Rotating Student Images */}
             <div className="hidden lg:block relative">
-              <div className="relative w-full aspect-square max-w-lg mx-auto">
-                {/* Main Visual */}
-                <div className="absolute inset-10 bg-gradient-to-br from-accent-400 to-accent-600 rounded-3xl transform rotate-6 shadow-2xl" />
-                <div className="absolute inset-10 bg-white rounded-3xl shadow-2xl flex items-center justify-center">
-                  <div className="text-center p-8">
+              <div className="relative w-full aspect-[4/5] max-w-lg mx-auto">
+                {/* Background accent */}
+                <div className="absolute inset-6 bg-gradient-to-br from-accent-400 to-accent-600 rounded-3xl transform rotate-3 shadow-2xl" />
+
+                {/* Image Carousel */}
+                <div className="absolute inset-6 rounded-3xl shadow-2xl overflow-hidden">
+                  {[
+                    { src: '/images/hero/student-1.jpg', alt: 'Students collaborating on projects' },
+                    { src: '/images/hero/student-2.jpg', alt: 'Students in classroom training' },
+                    { src: '/images/hero/student-3.jpg', alt: 'Team working on IT projects' },
+                    { src: '/images/hero/student-4.jpg', alt: 'Students learning together' },
+                    { src: '/images/hero/student-5.jpg', alt: 'Workshop and hands-on training' },
+                  ].map((img, idx) => (
                     <Image
-                      src="/images/logo.png"
-                      alt="RS Softtecs Solutions Pvt. Ltd."
-                      width={300}
-                      height={171}
-                      className="w-64 h-auto mx-auto"
+                      key={idx}
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className={`object-cover transition-opacity duration-1000 ${
+                        idx === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={idx === 0}
                     />
-                  </div>
+                  ))}
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+
+                {/* Image Indicators */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  {[0, 1, 2, 3, 4].map((idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
+                      }`}
+                      aria-label={`Show image ${idx + 1}`}
+                    />
+                  ))}
                 </div>
 
                 {/* Floating Cards */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg p-4 animate-float">
+                <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg p-4 animate-float z-10">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                       <FaCheckCircle className="text-green-500" />
@@ -170,7 +207,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 animate-float" style={{ animationDelay: '2s' }}>
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 animate-float z-10" style={{ animationDelay: '2s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
                       <FaCertificate className="text-primary-600" />
