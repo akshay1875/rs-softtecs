@@ -90,6 +90,11 @@ export default function Home() {
                 <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
                 <span className="text-sm font-medium">Since 2011 | Pune&apos;s #1 IT Training Institute</span>
               </div>
+
+              <p className="text-lg md:text-xl font-semibold text-accent-400 mb-4 italic">
+                &ldquo;Freshers are Fighters,<br />
+                They Fight for their First Job!&rdquo;
+              </p>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Launch Your 
