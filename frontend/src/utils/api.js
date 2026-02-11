@@ -100,6 +100,12 @@ export const teamAPI = {
   toggleStatus: (id) => api.put(`/team/${id}/status`),
 };
 
+// Code Execution API
+export const codeAPI = {
+  getLanguages: () => api.get('/code/languages'),
+  execute: (data) => api.post('/code/execute', data),
+};
+
 // Quiz API
 export const quizAPI = {
   getAll: (params) => api.get('/quiz', { params }),

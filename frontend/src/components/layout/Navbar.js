@@ -26,6 +26,7 @@ const Navbar = () => {
     { href: '/reviews', label: 'Reviews' },
     { href: '/testimonials', label: 'Success Stories' },
     { href: '/test-your-skills', label: 'Test Your Skills' },
+    { href: '/practice', label: 'Code Editor' },
     { href: '/contact', label: 'Contact' },
   ];
 
