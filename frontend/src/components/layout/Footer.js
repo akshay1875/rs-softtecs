@@ -6,6 +6,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
+        {/* Top Row: Company Info + Quick Links + Contact */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
@@ -53,89 +54,78 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Office Addresses */}
+          {/* Head Office */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Office Addresses</h4>
-            <div className="space-y-6">
-              {/* Head Office */}
-              <div>
-                <h5 className="text-accent-400 font-semibold text-sm mb-2">Head Office - Deccan, Pune</h5>
-                <div className="flex gap-3">
-                  <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.
-                    </p>
-                    <a
-                      href="https://maps.app.goo.gl/KeCcYoEwFwvMUAE66"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 text-xs mt-1 transition-colors"
-                    >
-                      View on Google Maps <FaExternalLinkAlt className="text-[10px]" />
-                    </a>
-                    <div className="mt-2 space-y-1">
-                      <a href="tel:+919172101012" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
-                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 101 012
-                      </a>
-                      <a href="tel:+919172201101" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
-                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 201 101
-                      </a>
-                    </div>
-                  </div>
-                </div>
+            <h4 className="text-lg font-semibold mb-6">Head Office</h4>
+            <div className="space-y-4">
+              <div className="flex gap-3">
+                <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Office No 2, 4th Floor, Bhosale Shinde Arcade, JM Road, Near Deccan Bus Stop, Pune.
+                </p>
               </div>
-
-              {/* Branch Office */}
-              <div>
-                <h5 className="text-accent-400 font-semibold text-sm mb-2">Branch - Karvenagar, Pune</h5>
-                <div className="flex gap-3">
-                  <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.
-                    </p>
-                    <a
-                      href="https://maps.app.goo.gl/LwTiZu5c2Ac9mWkB6"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 text-xs mt-1 transition-colors"
-                    >
-                      View on Google Maps <FaExternalLinkAlt className="text-[10px]" />
-                    </a>
-                    <div className="mt-2 space-y-1">
-                      <a href="tel:+919172011021" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
-                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 011 021
-                      </a>
-                      <a href="tel:+919172110012" className="block text-gray-400 hover:text-accent-400 text-sm transition-colors">
-                        <FaPhone className="inline mr-2 text-accent-400 text-xs" />+91 9172 110 012
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li>
-                <a href="mailto:info@rssofttecs.com" className="flex items-center gap-3 text-gray-400 hover:text-accent-400 transition-colors">
-                  <FaEnvelope className="text-accent-400" />
-                  <span>info@rssofttecs.com</span>
+              <a
+                href="https://maps.app.goo.gl/KeCcYoEwFwvMUAE66"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-accent-400 hover:text-accent-300 text-xs transition-colors"
+              >
+                <FaExternalLinkAlt className="text-[10px]" /> View on Google Maps
+              </a>
+              <div className="space-y-2">
+                <a href="tel:+919172101012" className="flex items-center gap-2 text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                  <FaPhone className="text-accent-400 text-xs flex-shrink-0" />
+                  +91 9172 101 012
                 </a>
-              </li>
-            </ul>
-            <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-              <p className="text-sm text-gray-400">
-                <strong className="text-white">Working Hours:</strong><br />
-                Mon - Sat: 9 AM - 8 PM<br />
-                Sunday: 10 AM - 2 PM
-              </p>
+                <a href="tel:+919172201101" className="flex items-center gap-2 text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                  <FaPhone className="text-accent-400 text-xs flex-shrink-0" />
+                  +91 9172 201 101
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Branch Office */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Branch Office</h4>
+            <div className="space-y-4">
+              <div className="flex gap-3">
+                <FaMapMarkerAlt className="text-accent-400 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Office No 29/B Wing, 4th Floor, Yashashree Park, Warje Malwadi Rd, Near Karve Nagar PMT Bus Stop, Karve Nagar, Pune.
+                </p>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/LwTiZu5c2Ac9mWkB6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-accent-400 hover:text-accent-300 text-xs transition-colors"
+              >
+                <FaExternalLinkAlt className="text-[10px]" /> View on Google Maps
+              </a>
+              <div className="space-y-2">
+                <a href="tel:+919172011021" className="flex items-center gap-2 text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                  <FaPhone className="text-accent-400 text-xs flex-shrink-0" />
+                  +91 9172 011 021
+                </a>
+                <a href="tel:+919172110012" className="flex items-center gap-2 text-gray-400 hover:text-accent-400 text-sm transition-colors">
+                  <FaPhone className="text-accent-400 text-xs flex-shrink-0" />
+                  +91 9172 110 012
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Email & Working Hours Row */}
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <a href="mailto:info@rssofttecs.com" className="flex items-center gap-3 text-gray-400 hover:text-accent-400 transition-colors">
+            <FaEnvelope className="text-accent-400" />
+            <span>info@rssofttecs.com</span>
+          </a>
+          <p className="text-sm text-gray-400">
+            <strong className="text-white">Working Hours:</strong> Mon - Sat: 9 AM - 8 PM | Sunday: 10 AM - 2 PM
+          </p>
         </div>
       </div>
 
