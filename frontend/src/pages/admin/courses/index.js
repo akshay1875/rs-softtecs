@@ -3,7 +3,7 @@ import Link from 'next/link';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { coursesAPI } from '@/utils/api';
 import toast from 'react-hot-toast';
-import { FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 
 export default function AdminCoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -21,16 +21,6 @@ export default function AdminCoursesPage() {
       toast.error('Failed to fetch courses');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleToggleStatus = async (id) => {
-    try {
-      await coursesAPI.toggleStatus(id);
-      fetchCourses();
-      toast.success('Course status updated');
-    } catch (error) {
-      toast.error('Failed to update status');
     }
   };
 
@@ -110,13 +100,6 @@ export default function AdminCoursesPage() {
                     </td>
                     <td>
                       <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => handleToggleStatus(course._id)}
-                          className="p-2 text-gray-600 hover:text-primary-600 hover:bg-gray-100 rounded"
-                          title={course.status === 'active' ? 'Deactivate' : 'Activate'}
-                        >
-                          {course.status === 'active' ? <FaEyeSlash /> : <FaEye />}
-                        </button>
                         <Link
                           href={`/admin/courses/${course._id}`}
                           className="p-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"

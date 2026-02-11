@@ -3,7 +3,7 @@ import Link from 'next/link';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { teamAPI } from '@/utils/api';
 import toast from 'react-hot-toast';
-import { FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 
 export default function AdminTeamPage() {
   const [members, setMembers] = useState([]);
@@ -21,16 +21,6 @@ export default function AdminTeamPage() {
       toast.error('Failed to fetch team members');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleToggleStatus = async (id) => {
-    try {
-      await teamAPI.toggleStatus(id);
-      fetchMembers();
-      toast.success('Status updated');
-    } catch (error) {
-      toast.error('Failed to update status');
     }
   };
 
@@ -116,14 +106,7 @@ export default function AdminTeamPage() {
                       </span>
                     </td>
                     <td>
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => handleToggleStatus(member._id)}
-                          className="p-2 text-gray-600 hover:text-primary-600 hover:bg-gray-100 rounded"
-                          title={member.status === 'active' ? 'Hide' : 'Show'}
-                        >
-                          {member.status === 'active' ? <FaEyeSlash /> : <FaEye />}
-                        </button>
+                      <div className="flex items-center gap-2">
                         <Link
                           href={`/admin/team/${member._id}`}
                           className="p-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"
