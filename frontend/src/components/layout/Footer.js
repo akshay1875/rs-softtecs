@@ -15,9 +15,9 @@ const Footer = () => {
               <Image
                 src="/images/logo.png"
                 alt="RS Softtecs Solutions Pvt. Ltd."
-                width={180}
-                height={103}
-                className="h-14 w-auto brightness-0 invert"
+                width={160}
+                height={91}
+                className="h-12 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">

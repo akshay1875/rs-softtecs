@@ -71,9 +71,9 @@ const Navbar = () => {
               <Image
                 src="/images/logo.png"
                 alt="RS Softtecs Solutions Pvt. Ltd."
-                width={180}
-                height={103}
-                className="h-12 w-auto"
+                width={140}
+                height={80}
+                className="h-10 w-auto"
                 priority
               />
             </Link>
