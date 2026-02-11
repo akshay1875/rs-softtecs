@@ -100,6 +100,18 @@ export const teamAPI = {
   toggleStatus: (id) => api.put(`/team/${id}/status`),
 };
 
+// Quiz API
+export const quizAPI = {
+  getAll: (params) => api.get('/quiz', { params }),
+  getOne: (id) => api.get(`/quiz/${id}`),
+  create: (data) => api.post('/quiz', data),
+  update: (id, data) => api.put(`/quiz/${id}`, data),
+  delete: (id) => api.delete(`/quiz/${id}`),
+  getCategories: () => api.get('/quiz/categories'),
+  getTestQuestions: (category, params) => api.get(`/quiz/test/${encodeURIComponent(category)}`, { params }),
+  submitQuiz: (answers) => api.post('/quiz/submit', { answers }),
+};
+
 // Settings API
 export const settingsAPI = {
   get: () => api.get('/settings'),

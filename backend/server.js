@@ -14,6 +14,7 @@ const testimonialRoutes = require('./routes/testimonials');
 const enquiryRoutes = require('./routes/enquiries');
 const teamRoutes = require('./routes/team');
 const settingsRoutes = require('./routes/settings');
+const quizRoutes = require('./routes/quiz');
 
 // Connect to database
 connectDB();
@@ -46,6 +47,7 @@ app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/enquiries', enquiryRoutes);
 app.use('/api/team', teamRoutes);
 app.use('/api/settings', settingsRoutes);
+app.use('/api/quiz', quizRoutes);
 
 // Root route
 app.get('/', (req, res) => {
@@ -59,7 +61,8 @@ app.get('/', (req, res) => {
       courses: '/api/courses',
       reviews: '/api/reviews',
       testimonials: '/api/testimonials',
-      team: '/api/team'
+      team: '/api/team',
+      quiz: '/api/quiz'
     }
   });
 });

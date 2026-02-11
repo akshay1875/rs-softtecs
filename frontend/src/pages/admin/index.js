@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { coursesAPI, reviewsAPI, testimonialsAPI, enquiriesAPI } from '@/utils/api';
-import { FaBook, FaStar, FaComments, FaEnvelope, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { coursesAPI, reviewsAPI, testimonialsAPI, enquiriesAPI, quizAPI } from '@/utils/api';
+import { FaBook, FaStar, FaComments, FaEnvelope, FaArrowUp, FaArrowDown, FaQuestionCircle } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function AdminDashboard() {
@@ -9,7 +9,8 @@ export default function AdminDashboard() {
     courses: 0,
     reviews: 0,
     testimonials: 0,
-    enquiries: { total: 0, new: 0 }
+    enquiries: { total: 0, new: 0 },
+    quizQuestions: 0
   });
   const [recentEnquiries, setRecentEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,11 +21,12 @@ export default function AdminDashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      const [coursesRes, reviewsRes, testimonialsRes, enquiriesRes] = await Promise.all([
+      const [coursesRes, reviewsRes, testimonialsRes, enquiriesRes, quizRes] = await Promise.all([
         coursesAPI.getAll(),
         reviewsAPI.getAll(),
         testimonialsAPI.getAll(),
-        enquiriesAPI.getAll()
+        enquiriesAPI.getAll(),
+        quizAPI.getAll()
       ]);
 
       const enquiries = enquiriesRes.data.data;
@@ -34,7 +36,8 @@ export default function AdminDashboard() {
         courses: coursesRes.data.count,
         reviews: reviewsRes.data.count,
         testimonials: testimonialsRes.data.count,
-        enquiries: { total: enquiries.length, new: newEnquiries }
+        enquiries: { total: enquiries.length, new: newEnquiries },
+        quizQuestions: quizRes.data.count || 0
       });
 
       setRecentEnquiries(enquiries.slice(0, 5));
@@ -75,6 +78,13 @@ export default function AdminDashboard() {
       link: '/admin/enquiries',
       subtext: `${stats.enquiries.total} total`
     },
+    { 
+      title: 'Quiz Questions', 
+      value: stats.quizQuestions, 
+      icon: FaQuestionCircle, 
+      color: 'bg-purple-500',
+      link: '/admin/quiz'
+    },
   ];
 
   if (loading) {
@@ -90,7 +100,7 @@ export default function AdminDashboard() {
   return (
     <AdminLayout title="Dashboard">
       {/* Stats Cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
         {statCards.map((stat, idx) => (
           <Link key={idx} href={stat.link} className="card p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-between">
@@ -164,11 +174,12 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Links */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-8">
         {[
           { label: 'Add New Course', href: '/admin/courses/new', color: 'bg-primary-600' },
           { label: 'Add Review', href: '/admin/reviews/new', color: 'bg-yellow-600' },
           { label: 'Add Testimonial', href: '/admin/testimonials/new', color: 'bg-green-600' },
+          { label: 'Add Quiz Question', href: '/admin/quiz/new', color: 'bg-purple-600' },
           { label: 'View Enquiries', href: '/admin/enquiries', color: 'bg-red-600' },
         ].map((link, idx) => (
           <Link

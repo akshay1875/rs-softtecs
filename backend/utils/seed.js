@@ -9,6 +9,8 @@ const GoogleReview = require('../models/GoogleReview');
 const Testimonial = require('../models/Testimonial');
 const TeamMember = require('../models/TeamMember');
 const SiteSettings = require('../models/SiteSettings');
+const QuizQuestion = require('../models/Quiz');
+const QuizQuestion = require('../models/Quiz');
 
 // Connect to DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rs-softtecs');
@@ -511,6 +513,287 @@ const siteSettings = {
   }
 };
 
+// Sample Quiz Questions
+const quizQuestions = [
+  // C Language
+  {
+    category: 'C Language',
+    question: 'Which of the following is the correct syntax to declare a variable in C?',
+    options: ['int 1var;', 'int var1;', 'int var 1;', '1int var;'],
+    correctAnswer: 1,
+    explanation: 'Variable names in C cannot start with a digit. "int var1;" is the correct syntax.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'C Language',
+    question: 'What is the size of an int variable in C (on most 32-bit systems)?',
+    options: ['1 byte', '2 bytes', '4 bytes', '8 bytes'],
+    correctAnswer: 2,
+    explanation: 'On most 32-bit systems, an int occupies 4 bytes (32 bits) of memory.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'C Language',
+    question: 'What does the "printf" function do in C?',
+    options: ['Reads input', 'Prints output to the console', 'Allocates memory', 'Defines a variable'],
+    correctAnswer: 1,
+    explanation: 'printf() is used to print formatted output to the standard output (console).',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'C Language',
+    question: 'Which loop is guaranteed to execute at least once?',
+    options: ['for loop', 'while loop', 'do-while loop', 'None of the above'],
+    correctAnswer: 2,
+    explanation: 'A do-while loop checks the condition after the loop body, so it always executes at least once.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'C Language',
+    question: 'What is a pointer in C?',
+    options: ['A variable that stores a character', 'A variable that stores the address of another variable', 'A function that returns an integer', 'A keyword in C'],
+    correctAnswer: 1,
+    explanation: 'A pointer is a variable that stores the memory address of another variable.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  // Java
+  {
+    category: 'Java',
+    question: 'Which keyword is used to create an object in Java?',
+    options: ['class', 'new', 'object', 'create'],
+    correctAnswer: 1,
+    explanation: 'The "new" keyword is used to create new objects in Java.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Java',
+    question: 'What is the default value of a boolean variable in Java?',
+    options: ['true', 'false', '0', 'null'],
+    correctAnswer: 1,
+    explanation: 'The default value of a boolean in Java is false.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Java',
+    question: 'Which of the following is NOT an OOP concept?',
+    options: ['Encapsulation', 'Polymorphism', 'Compilation', 'Inheritance'],
+    correctAnswer: 2,
+    explanation: 'Compilation is a process, not an OOP concept. The four OOP concepts are Encapsulation, Polymorphism, Inheritance, and Abstraction.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'Java',
+    question: 'What is the parent class of all classes in Java?',
+    options: ['Object', 'Main', 'Class', 'Super'],
+    correctAnswer: 0,
+    explanation: 'The Object class is the parent/root class of all classes in Java.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'Java',
+    question: 'Which collection in Java does NOT allow duplicate elements?',
+    options: ['ArrayList', 'LinkedList', 'HashSet', 'Vector'],
+    correctAnswer: 2,
+    explanation: 'HashSet does not allow duplicate elements. It is part of the Set interface.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  // Python
+  {
+    category: 'Python',
+    question: 'What is the output of print(type(5))?',
+    options: ['<class \'int\'>', '<class \'float\'>', '<class \'number\'>', '<class \'str\'>'],
+    correctAnswer: 0,
+    explanation: '5 is an integer in Python, so type(5) returns <class \'int\'>.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Python',
+    question: 'Which keyword is used to define a function in Python?',
+    options: ['function', 'func', 'def', 'define'],
+    correctAnswer: 2,
+    explanation: 'In Python, functions are defined using the "def" keyword.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Python',
+    question: 'What does "len()" function do in Python?',
+    options: ['Returns the type of object', 'Returns the length of an object', 'Returns the memory size', 'Returns the id of the object'],
+    correctAnswer: 1,
+    explanation: 'The len() function returns the number of items in an object (like a string, list, etc.).',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Python',
+    question: 'Which of the following is a mutable data type in Python?',
+    options: ['String', 'Tuple', 'List', 'Integer'],
+    correctAnswer: 2,
+    explanation: 'Lists are mutable in Python — they can be modified after creation. Strings, tuples, and integers are immutable.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'Python',
+    question: 'What is the output of "Hello"[1]?',
+    options: ['H', 'e', 'l', 'He'],
+    correctAnswer: 1,
+    explanation: 'String indexing in Python starts at 0. So "Hello"[1] returns "e".',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  // JavaScript
+  {
+    category: 'JavaScript',
+    question: 'Which of the following is used to declare a constant in JavaScript?',
+    options: ['var', 'let', 'const', 'constant'],
+    correctAnswer: 2,
+    explanation: 'The "const" keyword is used to declare constants in JavaScript (ES6+).',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'JavaScript',
+    question: 'What is the result of typeof null in JavaScript?',
+    options: ['"null"', '"undefined"', '"object"', '"number"'],
+    correctAnswer: 2,
+    explanation: 'typeof null returns "object" — this is a well-known JavaScript quirk/bug from its early implementation.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'JavaScript',
+    question: 'What does "===" operator check in JavaScript?',
+    options: ['Only value', 'Only type', 'Both value and type', 'None of the above'],
+    correctAnswer: 2,
+    explanation: 'The strict equality operator (===) checks both value and type without type coercion.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'JavaScript',
+    question: 'Which method is used to add an element at the end of an array?',
+    options: ['push()', 'pop()', 'shift()', 'unshift()'],
+    correctAnswer: 0,
+    explanation: 'push() adds one or more elements to the end of an array.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'JavaScript',
+    question: 'What is a closure in JavaScript?',
+    options: ['A way to close the browser', 'A function that has access to the outer function\'s variables', 'A type of loop', 'An error handling mechanism'],
+    correctAnswer: 1,
+    explanation: 'A closure is a function that retains access to variables from its outer (enclosing) function scope even after the outer function has returned.',
+    difficulty: 'hard',
+    status: 'active'
+  },
+  // Aptitude
+  {
+    category: 'Aptitude',
+    question: 'If a train travels 360 km in 4 hours, what is its speed?',
+    options: ['80 km/h', '90 km/h', '100 km/h', '70 km/h'],
+    correctAnswer: 1,
+    explanation: 'Speed = Distance / Time = 360 / 4 = 90 km/h.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Aptitude',
+    question: 'What is 25% of 200?',
+    options: ['25', '50', '75', '100'],
+    correctAnswer: 1,
+    explanation: '25% of 200 = (25/100) × 200 = 50.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'Aptitude',
+    question: 'If the ratio of A to B is 3:5 and B is 40, what is A?',
+    options: ['20', '24', '30', '15'],
+    correctAnswer: 1,
+    explanation: 'A/B = 3/5, so A = (3/5) × 40 = 24.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'Aptitude',
+    question: 'A person buys an article for ₹500 and sells it for ₹600. What is the profit percentage?',
+    options: ['10%', '15%', '20%', '25%'],
+    correctAnswer: 2,
+    explanation: 'Profit = 600 - 500 = 100. Profit % = (100/500) × 100 = 20%.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  {
+    category: 'Aptitude',
+    question: 'What is the next number in the series: 2, 6, 12, 20, 30, ?',
+    options: ['40', '42', '44', '38'],
+    correctAnswer: 1,
+    explanation: 'The differences are 4, 6, 8, 10, 12. So the next number is 30 + 12 = 42.',
+    difficulty: 'medium',
+    status: 'active'
+  },
+  // SQL
+  {
+    category: 'SQL',
+    question: 'Which SQL command is used to retrieve data from a database?',
+    options: ['GET', 'FETCH', 'SELECT', 'RETRIEVE'],
+    correctAnswer: 2,
+    explanation: 'SELECT is the SQL command used to query and retrieve data from database tables.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'SQL',
+    question: 'Which clause is used to filter records in SQL?',
+    options: ['FILTER', 'WHERE', 'HAVING', 'WHEN'],
+    correctAnswer: 1,
+    explanation: 'The WHERE clause is used to filter records based on specified conditions.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'SQL',
+    question: 'What is a PRIMARY KEY in SQL?',
+    options: ['A column that allows duplicates', 'A column that uniquely identifies each row', 'A foreign reference', 'A type of index'],
+    correctAnswer: 1,
+    explanation: 'A PRIMARY KEY is a column (or set of columns) that uniquely identifies each row in a table.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  // HTML & CSS
+  {
+    category: 'HTML & CSS',
+    question: 'What does HTML stand for?',
+    options: ['Hyper Text Markup Language', 'High Tech Modern Language', 'Hyper Transfer Markup Language', 'Home Text Markup Language'],
+    correctAnswer: 0,
+    explanation: 'HTML stands for HyperText Markup Language.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+  {
+    category: 'HTML & CSS',
+    question: 'Which CSS property is used to change the text color?',
+    options: ['text-color', 'font-color', 'color', 'text-style'],
+    correctAnswer: 2,
+    explanation: 'The "color" property in CSS is used to set the text color of an element.',
+    difficulty: 'easy',
+    status: 'active'
+  },
+];
+
 // Seed function
 const seedData = async () => {
   try {
@@ -521,6 +804,7 @@ const seedData = async () => {
     await Testimonial.deleteMany();
     await TeamMember.deleteMany();
     await SiteSettings.deleteMany();
+    await QuizQuestion.deleteMany();
 
     console.log('Cleared existing data...');
 
@@ -547,6 +831,10 @@ const seedData = async () => {
     // Create site settings
     await SiteSettings.create(siteSettings);
     console.log('Site settings created');
+
+    // Create quiz questions
+    await QuizQuestion.insertMany(quizQuestions);
+    console.log('Quiz questions created');
 
     console.log('\n✅ Database seeded successfully!');
     console.log('\n📧 Admin Login Credentials:');

@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { useAuth } from '@/context/AuthContext';
 import { 
   FaHome, FaBook, FaStar, FaUsers, FaComments, FaEnvelope,
-  FaCog, FaSignOutAlt, FaBars, FaTimes, FaChevronDown
+  FaCog, FaSignOutAlt, FaBars, FaTimes, FaChevronDown, FaQuestionCircle
 } from 'react-icons/fa';
 
 const AdminLayout = ({ children, title }) => {
@@ -39,6 +39,7 @@ const AdminLayout = ({ children, title }) => {
     { href: '/admin/testimonials', label: 'Testimonials', icon: FaComments },
     { href: '/admin/enquiries', label: 'Enquiries', icon: FaEnvelope },
     { href: '/admin/team', label: 'Team Members', icon: FaUsers },
+    { href: '/admin/quiz', label: 'Quiz Questions', icon: FaQuestionCircle },
     { href: '/admin/settings', label: 'Settings', icon: FaCog },
   ];
 
