@@ -170,6 +170,61 @@ const courses = [
     ],
     features: ['Hands-on Practice', 'Real Scenarios', 'Quick Learning', 'Foundation Course'],
     prerequisites: ['Basic computer knowledge']
+  },
+  {
+    name: 'Data Analytics & Visualization',
+    duration: '3 Months',
+    description: 'Learn data analytics from scratch. Master Excel, SQL, Python for analytics, Power BI, Tableau, and statistical analysis to become a job-ready Data Analyst.',
+    shortDescription: 'Data Analytics with Power BI, Tableau & Python',
+    category: 'data-science',
+    level: 'beginner',
+    icon: 'fas fa-chart-bar',
+    isFeatured: true,
+    status: 'active',
+    syllabus: [
+      { title: 'Foundation', topics: ['Excel Advanced', 'Statistics & Probability', 'SQL for Analytics', 'Data Cleaning'] },
+      { title: 'Python for Analytics', topics: ['Python Basics', 'Pandas & NumPy', 'Data Manipulation', 'Exploratory Data Analysis'] },
+      { title: 'Visualization Tools', topics: ['Power BI', 'Tableau', 'Dashboard Design', 'Storytelling with Data'] },
+      { title: 'Projects & Career', topics: ['Real-world Datasets', 'Capstone Project', 'Portfolio Building', 'Interview Prep'] }
+    ],
+    features: ['Beginner Friendly', 'Industry Tools', 'Real Datasets', 'Portfolio Projects', 'Placement Support'],
+    prerequisites: ['Basic computer knowledge', 'No coding experience needed']
+  },
+  {
+    name: 'Frontend Development (React & Angular)',
+    duration: '3 Months',
+    description: 'Master modern frontend development with React.js and Angular. Build responsive, dynamic web applications with industry-standard tools and frameworks.',
+    shortDescription: 'Modern frontend with React.js & Angular',
+    category: 'web-development',
+    level: 'intermediate',
+    icon: 'fas fa-code',
+    status: 'active',
+    syllabus: [
+      { title: 'Web Fundamentals', topics: ['HTML5 & CSS3', 'JavaScript ES6+', 'Responsive Design', 'Bootstrap/Tailwind'] },
+      { title: 'React.js', topics: ['Components & JSX', 'Hooks & State', 'Redux', 'React Router', 'API Integration'] },
+      { title: 'Angular', topics: ['TypeScript', 'Components & Modules', 'Services & DI', 'Routing', 'RxJS'] },
+      { title: 'Advanced', topics: ['Testing', 'Performance Optimization', 'Deployment', 'Version Control'] }
+    ],
+    features: ['Dual Framework', 'Project-Based', 'Industry Practices', 'Code Reviews'],
+    prerequisites: ['Basic HTML/CSS knowledge', 'JavaScript fundamentals']
+  },
+  {
+    name: 'Linux Administration',
+    duration: '2 Months',
+    description: 'Learn Linux system administration from basics to advanced. Master shell scripting, server management, networking, and security for enterprise environments.',
+    shortDescription: 'Linux system administration & shell scripting',
+    category: 'cloud',
+    level: 'beginner',
+    icon: 'fab fa-linux',
+    status: 'active',
+    syllabus: [
+      { title: 'Linux Basics', topics: ['Installation', 'File System', 'Commands', 'Permissions', 'Users & Groups'] },
+      { title: 'Administration', topics: ['Package Management', 'Process Management', 'Disk Management', 'Cron Jobs'] },
+      { title: 'Networking', topics: ['Network Configuration', 'SSH', 'Firewall', 'DNS', 'Web Server Setup'] },
+      { title: 'Advanced', topics: ['Shell Scripting', 'Log Management', 'Security Hardening', 'Backup & Recovery'] }
+    ],
+    features: ['Hands-on Labs', 'Server Setup', 'Certification Prep', 'Industry Scenarios'],
+    prerequisites: ['Basic computer knowledge']
   }
 ];
 
@@ -282,16 +337,84 @@ const testimonials = [
     rating: 5,
     isFeatured: true,
     status: 'active'
+  },
+  {
+    studentName: 'Aditya Kasar',
+    testimonialText: 'RS Softtecs gave me the right direction and skills to crack interviews at top companies. The structured training, real project experience, and continuous placement support helped me land a role at PTC with an excellent package. Highly recommended!',
+    courseTaken: 'Full Stack Java Development',
+    companyPlaced: 'PTC',
+    designation: 'Software Engineer',
+    package: '8 LPA',
+    batchYear: '2024',
+    rating: 5,
+    isFeatured: true,
+    status: 'active'
+  },
+  {
+    studentName: 'Kalyani Kale',
+    testimonialText: 'The training at RS Softtecs was comprehensive and practical. The faculty went above and beyond to ensure we understood every concept. Their placement team connected me with Inspirit Vision, and I got placed within weeks of completing my course!',
+    courseTaken: 'Python Full Stack Development',
+    companyPlaced: 'Inspirit Vision',
+    designation: 'Software Developer',
+    package: '4.2 LPA',
+    batchYear: '2024',
+    rating: 5,
+    isFeatured: true,
+    status: 'active'
+  },
+  {
+    studentName: 'Vrushali Pawar',
+    testimonialText: 'Joining RS Softtecs was a turning point in my career. The industry-aligned curriculum and mock interview sessions prepared me thoroughly. I got placed at Cognizant and I owe it all to the amazing team at RS Softtecs!',
+    courseTaken: 'Full Stack Java Development',
+    companyPlaced: 'Cognizant',
+    designation: 'Programmer Analyst',
+    package: '3 LPA',
+    batchYear: '2024',
+    rating: 5,
+    status: 'active'
+  },
+  {
+    studentName: 'Megha More',
+    testimonialText: 'The Data Analytics course at RS Softtecs helped me build a strong foundation in data analysis and visualization tools. The hands-on projects with real datasets made me confident for interviews. Now working at Zensar and growing every day!',
+    courseTaken: 'Data Analytics & Visualization',
+    companyPlaced: 'Zensar',
+    designation: 'Data Analyst',
+    package: '3.2 LPA',
+    batchYear: '2024',
+    rating: 5,
+    status: 'active'
+  },
+  {
+    studentName: 'Sanika Lagad',
+    testimonialText: 'RS Softtecs provided me with the skills and confidence I needed to start my IT career. The practical training approach and supportive mentors made learning enjoyable. Got placed at Valenta Pvt Ltd right after completing my course!',
+    courseTaken: 'MERN Stack Development',
+    companyPlaced: 'Valenta Pvt Ltd',
+    designation: 'Web Developer',
+    package: '3 LPA',
+    batchYear: '2024',
+    rating: 5,
+    status: 'active'
+  },
+  {
+    studentName: 'Dnyaneshwar Patharkar',
+    testimonialText: 'The training quality at RS Softtecs is exceptional. From basic concepts to advanced topics, everything was covered thoroughly. The placement team worked tirelessly to help me get placed at Eduquity Career Technologies.',
+    courseTaken: 'Full Stack Java Development',
+    companyPlaced: 'Eduquity Career Technologies Pvt. Ltd',
+    designation: 'Software Developer',
+    package: '2.5 LPA',
+    batchYear: '2024',
+    rating: 5,
+    status: 'active'
   }
 ];
 
 const teamMembers = [
   {
-    name: 'Rajendra Shinde',
+    name: 'Rahul Salunke',
     designation: 'Founder & CEO',
     role: 'founder',
-    bio: 'With over 15 years of experience in the IT industry, Rajendra founded RS Softtecs with a vision to bridge the gap between academic learning and industry requirements. His passion for education and technology drives the institute\'s mission.',
-    expertise: ['Strategic Leadership', 'IT Consulting', 'Training & Development'],
+    bio: 'Rahul Salunke founded RS Softtecs with a clear vision — to bridge the gap between academic learning and industry requirements. His passion for education and technology, combined with deep industry connections, drives the institute\'s mission of producing job-ready IT professionals who can contribute from day one.',
+    expertise: ['Strategic Leadership', 'IT Consulting', 'Training & Development', 'Placement Strategy'],
     experience: '15+ Years',
     status: 'active',
     displayOrder: 1
@@ -349,7 +472,7 @@ const teamMembers = [
 ];
 
 const siteSettings = {
-  companyName: 'RS Softtecs Pvt Ltd',
+  companyName: 'RS Softtecs Solutions Private Limited',
   tagline: "Pune's #1 IT Training & Placement Institute",
   contact: {
     phone: '+91 9172 101 012',
@@ -375,11 +498,11 @@ const siteSettings = {
     hiringPartners: 200
   },
   aboutUs: {
-    shortDescription: 'RS Softtecs is a leading IT training and placement institute in Pune, committed to transforming careers since 2011.',
-    fullDescription: 'Established in 2011, RS Softtecs Pvt Ltd has been at the forefront of IT education in Pune. We specialize in providing industry-oriented training that bridges the gap between academic knowledge and practical skills required in the IT industry. Our comprehensive courses, experienced faculty, and strong placement support have helped thousands of students launch successful careers in technology.',
-    mission: 'To empower aspiring IT professionals with quality education, practical skills, and career guidance that transforms their lives and contributes to the technology industry.',
-    vision: 'To be the most trusted IT training institute in India, known for producing job-ready professionals who excel in their careers.',
-    founderMessage: 'At RS Softtecs, we believe that quality education should be accessible to everyone. Our commitment to excellence, industry-relevant curriculum, and personalized attention sets us apart. We dont just teach technology; we shape careers and transform lives.'
+    shortDescription: 'RS Softtecs Solutions Pvt. Ltd. is Pune\'s premier IT training and placement institute, committed to transforming careers and producing job-ready talent for the tech industry.',
+    fullDescription: 'Located in the heart of Pune on J.M. Road, RS Softtecs Solutions Private Limited is a trusted name in IT education and career transformation. We specialize in delivering industry-aligned training and producing job-ready talent for the ever-evolving tech landscape. Our training programs cover Full Stack Development (Java, Python, MERN, MEAN), Front-End Technologies (React, Angular), Software Testing & QA, Data Analytics & Visualization, Linux Administration, and Cloud & DevOps. We don\'t just train — we transform learners into professionals who can contribute from day one.',
+    mission: 'To empower aspiring IT professionals with quality education, practical skills, and career guidance that transforms their lives and contributes to the technology industry. We strive to bridge the gap between academia and industry.',
+    vision: 'To be the most trusted IT training institute in India, known for producing job-ready professionals who excel in their careers. Our goal is to be the strategic partner for companies seeking high-performing tech talent.',
+    founderMessage: 'At RS Softtecs, we believe that freshers are fighters — they fight for their first job! Our commitment is to arm them with the right skills, confidence, and industry exposure. Our curriculum is co-designed with industry experts, and our placement cell works closely with hiring partners to ensure every student gets the opportunity they deserve. We don\'t just teach technology; we shape careers and transform lives.'
   },
   workingHours: {
     weekdays: 'Mon - Fri: 9:00 AM - 8:00 PM',

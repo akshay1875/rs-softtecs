@@ -8,7 +8,7 @@ const Layout = ({ children, title, description }) => {
     : "RS Softtecs - Pune's #1 IT Training & Placement Institute";
   
   const siteDescription = description || 
-    "RS Softtecs Pvt Ltd - Leading IT Training Institute in Pune since 2011. Expert training in Java, Python, MERN, Data Science, AWS & more. 100% Placement Assistance.";
+    "RS Softtecs Solutions Pvt. Ltd. - Leading IT Training Institute in Pune. Expert training in Java, Python, MERN, Data Science, Data Analytics, AWS & more. 100% Placement Assistance.";
 
   return (
     <>

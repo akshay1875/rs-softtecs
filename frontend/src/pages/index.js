@@ -236,7 +236,7 @@ export default function Home() {
                 <span className="gradient-text"> Since 2011</span>
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                RS Softtecs Pvt Ltd is Pune&apos;s leading IT training and placement institute, 
+                RS Softtecs Solutions Pvt. Ltd. is Pune&apos;s leading IT training and placement institute, 
                 dedicated to bridging the gap between education and industry requirements. 
                 With over 13 years of experience, we have successfully trained and placed 
                 thousands of students in top IT companies.

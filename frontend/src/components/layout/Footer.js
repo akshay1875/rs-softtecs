@@ -140,7 +140,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} RS Softtecs Pvt Ltd. All Rights Reserved.
+              © {new Date().getFullYear()} RS Softtecs Solutions Pvt. Ltd. All Rights Reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <Link href="#" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</Link>

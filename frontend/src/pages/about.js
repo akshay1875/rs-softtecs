@@ -72,16 +72,20 @@ export default function AboutPage() {
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 {settings?.aboutUs?.fullDescription || 
-                  `Established in 2011, RS Softtecs Pvt Ltd has been at the forefront of IT education 
-                  in Pune. We specialize in providing industry-oriented training that bridges the gap 
-                  between academic knowledge and practical skills required in the IT industry.`
+                  `Located in the heart of Pune on J.M. Road, RS Softtecs Solutions Private Limited is a 
+                  trusted name in IT education and career transformation. We specialize in delivering 
+                  industry-aligned training and producing job-ready talent for the ever-evolving tech landscape.`
                 }
               </p>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Our training programs cover Full Stack Development (Java, Python, MERN, MEAN), 
+                Front-End Technologies (React, Angular), Software Testing & QA, Data Analytics 
+                & Visualization, Linux Administration, and Cloud & DevOps.
+              </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Our comprehensive courses, experienced faculty, and strong placement support have 
-                helped thousands of students launch successful careers in technology. We believe 
-                that quality education should be accessible to everyone, and we are committed to 
-                transforming lives through skill development.
+                We don&apos;t just train — we transform learners into professionals who can contribute 
+                from day one. Our curriculum is co-designed with industry experts, and our placement 
+                cell works closely with hiring partners to streamline recruitment.
               </p>
 
               {/* Highlights */}
@@ -176,8 +180,8 @@ export default function AboutPage() {
                   RS
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Rajendra Shinde</h4>
-                  <p className="text-gray-600">Founder & CEO, RS Softtecs Pvt Ltd</p>
+                  <h4 className="font-bold text-gray-900">Rahul Salunke</h4>
+                  <p className="text-gray-600">Founder & CEO, RS Softtecs Solutions Pvt. Ltd.</p>
                 </div>
               </div>
             </div>
@@ -204,24 +208,24 @@ export default function AboutPage() {
                 description: 'Learn from professionals with 10+ years of real-world experience in top IT companies.'
               },
               {
-                title: 'Hands-on Learning',
-                description: 'Work on live projects and build a portfolio that impresses employers.'
+                title: 'Ready-to-Deploy Talent',
+                description: 'Students trained on real-world projects and agile methodologies, ready to contribute from day one.'
               },
               {
                 title: 'Small Batch Size',
-                description: 'Personalized attention with batch size of 15-20 students for better learning.'
+                description: 'Personalized attention with small batch sizes for better learning and individual focus.'
               },
               {
-                title: '100% Placement Support',
-                description: 'Dedicated placement cell with 200+ hiring partners across India.'
+                title: 'Zero-Cost Recruitment',
+                description: 'Hiring partners get access to pre-assessed, job-ready candidates with zero recruitment cost.'
               },
               {
-                title: 'Affordable Fees',
-                description: 'Quality education at competitive prices with easy EMI options available.'
+                title: 'Soft Skills & Grooming',
+                description: 'Complete interview preparation including soft skills training and communication readiness.'
               },
               {
                 title: 'Flexible Timings',
-                description: 'Morning, evening, and weekend batches to suit your schedule.'
+                description: 'Morning, evening, and weekend batches to suit working professionals and students.'
               }
             ].map((item, idx) => (
               <div key={idx} className="p-6 bg-white/5 backdrop-blur-sm rounded-xl hover:bg-white/10 transition-colors">

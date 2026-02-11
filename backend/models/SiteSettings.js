@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const siteSettingsSchema = new mongoose.Schema({
   companyName: {
     type: String,
-    default: 'RS Softtecs Pvt Ltd'
+    default: 'RS Softtecs Solutions Pvt. Ltd.'
   },
   tagline: {
     type: String,
