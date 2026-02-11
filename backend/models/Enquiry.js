@@ -31,7 +31,7 @@ const enquirySchema = new mongoose.Schema({
   },
   source: {
     type: String,
-    enum: ['website', 'google', 'facebook', 'referral', 'other'],
+    enum: ['website', 'google', 'facebook', 'referral', 'syllabus_download', 'popup', 'other'],
     default: 'website'
   },
   status: {
